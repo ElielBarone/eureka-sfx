@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <title>eureka-sfx</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF"
+      crossorigin="anonymous"
+    />
+    <script>
+      var playing = null;
+
+      function toggleSound(soundId) {
+        if (playing === soundId) {
+          stopsound(soundId);
+        } else {
+          playsound(soundId);
+        }
+      }
+
+      function playsound(soundId) {
+        playing = soundId;
+        var sfx = document.getElementById(soundId);
+        sfx.autoplay = "true";
+        sfx.load();
+        sfx.addEventListener("ended", function () {
+          playing = null;
+        });
+      }
+
+      function stopsound(soundId) {
+        var sfx = document.getElementById(soundId);
+        sfx.pause();
+        sfx.autoplay = "false";
+        sfx.currentTime = 0;
+        playing = null;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div style="background-color: #2a3e49">
+      <div class="container py-4">
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <img src="./eureka-sfx.png" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <audio id="badum"><source src="badum.mp3" /></audio>
+    <audio id="grilo"><source src="grilo.mp3" /></audio>
+    <audio id="risos"><source src="risos.mp3" /></audio>
+    <audio id="aplausos"><source src="aplausos.mp3" /></audio>
+
+    <div class="container py-4">
+      <div class="row justify-content-md-center pt-4">
+        <div class="col-md-auto">
+          <div class="btn-group btn-group-lg sons-comuns" role="group">
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="toggleSound('badum')"
+            >
+              Badum
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="toggleSound('grilo')"
+            >
+              Grilo
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="toggleSound('risos')"
+            >
+              Risos
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning"
+              onclick="toggleSound('aplausos')"
+            >
+              Aplausos
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-4">
+      <div class="row justify-content-md-center">
+        <div class="col-md-auto">
+          <div class="btn-group sons-comuns" role="group">
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onclick="toggleSound('naovaidar')"
+              id="button"
+            >
+              Não vai dar
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onclick="toggleSound('brasil')"
+              id="button"
+            >
+              Brasil
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onclick="toggleSound('queissomeufilho')"
+              id="button"
+            >
+              Que isso meu filho
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onclick="toggleSound('rapaz')"
+              id="button"
+            >
+              Rapaz
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              onclick="toggleSound('irra')"
+              id="button"
+            >
+              Iraaaaaaa
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <audio id="naovaidar"><source src="naovaidar.mp3" /></audio>
+    <audio id="brasil"><source src="brasil.mp3" /></audio>
+    <audio id="queissomeufilho"><source src="queissomeufilho.mp3" /></audio>
+    <audio id="rapaz"><source src="rapaz.mp3" /></audio>
+    <audio id="irra"><source src="irra.mp3" /></audio>
+  </body>
+</html>
